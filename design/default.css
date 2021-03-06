@@ -1,0 +1,21 @@
+/* RESET */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/*BODY*/
+
+#hello {
+    background-image: url('../pictures/hello.jpg');
+    background-size: cover;
+    height: 500px;
+}
