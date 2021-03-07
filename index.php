@@ -15,7 +15,7 @@
             <img src="pictures/logo.png" alt="logo blanc Bitly" id="mainLogo">
         </div>
         <h1 class="center white fontWNormal">UNE URL LONGUE ? RACCOURICSSEZ-LA ?</h1>
-        <h2 class="center white fontWNormal">Largement meilleur et plus court que les autres.</h2>
+        <h2 class="center white fontSNormal">Largement meilleur et plus court que les autres.</h2>
         <form action="" class="center">
             <input type="url" name="" placeholder="Collez un lien à raccourcir">
             <button type="submit" class="white fontWBold">RACCOURCIR</button>
@@ -26,8 +26,8 @@
     </header>
 <!-- SECTION -->
     <section>
-        <h2>CES MARQUES NOUS FONT CONFIANCE</h2>
-        <div><img src="pictures/1.png" alt="logo gris, Entrepreneur magazine"><img src="pictures/2.png" alt="logo gris, Kaiser Permanente"><img src="pictures/3.png" alt="logo gris, PBS"><img src="pictures/4.png" alt="logo gris, montage"></div>
+        <h2 class="center fontSNormal">CES MARQUES NOUS FONT CONFIANCE</h2>
+        <div class="entrepiseImg center"><img src="pictures/1.png" alt="logo gris, Entrepreneur magazine" ><img src="pictures/2.png" alt="logo gris, Kaiser Permanente"><img src="pictures/3.png" alt="logo gris, PBS" ><img src="pictures/4.png" alt="logo gris, montage"></div>
     </section>
 <!-- FOOTER -->
     <footer>

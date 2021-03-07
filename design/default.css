@@ -37,20 +37,33 @@ body {
 
 /*BODY*/
 
+
+/*header*/
+
 #hello {
     background-image: url('../pictures/hello.jpg');
     background-size: cover;
-    height: 500px;
+    height: 350px;
 }
 
 #mainLogo {
-    max-width: 90px;
+    max-width: 80px;
     margin: 30px 100px;
+}
+
+header>h1 {
+    margin: 0;
+    padding: 0;
+}
+
+header>h2 {
+    margin: 0;
+    padding: 20px 0;
 }
 
 input {
     margin-right: 1px;
-    width: 350px;
+    width: 400px;
 }
 
 input,
@@ -71,17 +84,41 @@ button {
 
 button {
     border: 0;
-    background-color: rgb(255, 102, 0);
+    background-color: #f86b1e;
+    ;
 }
 
 #resultUser {
     max-width: 40%;
     margin: 15px auto;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border: .5px solid rgb(133, 133, 133);
     /*RADIUS*/
     border-radius: 11px 11px 11px 11px;
     -moz-border-radius: 11px 11px 11px 11px;
     -webkit-border-radius: 11px 11px 11px 11px;
     /*FONT-SIZE*/
+}
+
+
+/*section*/
+
+section {
+    background-color: rgb(238, 238, 238);
+}
+
+section>h2 {
+    margin: 0;
+    padding: 20px 0;
+    color: #f86b1e;
+}
+
+section>div {
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.entrepiseImg>img {
+    padding: 0 15px;
+    max-height: 30px;
 }
