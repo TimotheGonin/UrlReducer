@@ -12,9 +12,9 @@
 <!-- HEADER -->
     <header id="hello">
         <div>
-            <img src="pictures/logo.png" alt="logo blanc Bitly" id="mainLogo">
+            <img src="pictures/logo.png" alt="logo blanc, Bitly" id="mainLogo">
         </div>
-        <h1 class="center white fontWNormal">UNE URL LONGUE ? RACCOURICSSEZ-LA ?</h1>
+        <h1 class="center white fontWNormal">UNE URL LONGUE ? RACCOURCISSEZ-LA ?</h1>
         <h2 class="center white fontSNormal">Largement meilleur et plus court que les autres.</h2>
         <form action="" class="center">
             <input type="url" name="" placeholder="Collez un lien à raccourcir">
@@ -26,12 +26,14 @@
     </header>
 <!-- SECTION -->
     <section>
-        <h2 class="center fontSNormal">CES MARQUES NOUS FONT CONFIANCE</h2>
+        <h2 class="center fontSNormal orange">CES MARQUES NOUS FONT CONFIANCE</h2>
         <div class="entrepiseImg center"><img src="pictures/1.png" alt="logo gris, Entrepreneur magazine" ><img src="pictures/2.png" alt="logo gris, Kaiser Permanente"><img src="pictures/3.png" alt="logo gris, PBS" ><img src="pictures/4.png" alt="logo gris, montage"></div>
     </section>
 <!-- FOOTER -->
     <footer>
-        <div><img src="" alt=""></div>
+        <div><img src="pictures/logo2.png" alt="logo orange, Bitly" id="footerLogo"></div>
+        <p id="copyright" class="center ">2021 © Bitly</p>
+        <p id="footerLink" class= "center fontWBold"><a href="#" class="orange">Contact</a> - <a href="http://" class="orange">A Propos</a></p>
     </footer>
 </body>
 </html>

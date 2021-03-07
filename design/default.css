@@ -18,8 +18,8 @@ body {
     text-align: center;
 }
 
-.white {
-    color: white;
+.orange {
+    color: #ef4d17;
 }
 
 .fontWNormal {
@@ -32,6 +32,10 @@ body {
 
 .fontSNormal {
     font-size: .8em;
+}
+
+.white {
+    color: white;
 }
 
 
@@ -110,7 +114,6 @@ section {
 section>h2 {
     margin: 0;
     padding: 20px 0;
-    color: #f86b1e;
 }
 
 section>div {
@@ -121,4 +124,29 @@ section>div {
 .entrepiseImg>img {
     padding: 0 15px;
     max-height: 30px;
+}
+
+
+/*footer*/
+
+#footerLogo {
+    display: block;
+    max-width: 60px;
+    margin: 30px auto 10px auto;
+}
+
+footer>p {
+    font-size: .7em;
+}
+
+#copyright {
+    margin: 0;
+}
+
+#footerLink {
+    margin-top: 0;
+}
+
+#footerLink>a {
+    text-decoration: none;
 }
