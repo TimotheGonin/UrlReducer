@@ -21,7 +21,7 @@
             <button type="submit" class="white fontWBold">RACCOURCIR</button>
         </form>
         <div id="resultUser" class="center">
-            <h3 class="center white fontSNormal">URL RACCOURICE : <span class="fontWNormal">http://www.test.fr</span></h3>
+            <h3 class="center white fontSNormal">URL RACCOURCIE : <span class="fontWNormal">http://www.test.fr</span></h3>
         </div>
     </header>
 <!-- SECTION -->
