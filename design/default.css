@@ -12,10 +12,76 @@ body {
 }
 
 
+/*globale class*/
+
+.center {
+    text-align: center;
+}
+
+.white {
+    color: white;
+}
+
+.fontWNormal {
+    font-weight: normal;
+}
+
+.fontWBold {
+    font-weight: bold;
+}
+
+.fontSNormal {
+    font-size: .8em;
+}
+
+
 /*BODY*/
 
 #hello {
     background-image: url('../pictures/hello.jpg');
     background-size: cover;
     height: 500px;
+}
+
+#mainLogo {
+    max-width: 90px;
+    margin: 30px 100px;
+}
+
+input {
+    margin-right: 1px;
+    width: 350px;
+}
+
+input,
+button {
+    margin: 0;
+    border: 0;
+    padding: 10px 20px;
+    /*RADIUS*/
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    border: 0px solid #000000;
+    /*SHASOW*/
+    -webkit-box-shadow: 5px 5px 4px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 4px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 4px -3px rgba(0, 0, 0, 0.75);
+}
+
+button {
+    border: 0;
+    background-color: rgb(255, 102, 0);
+}
+
+#resultUser {
+    max-width: 40%;
+    margin: 15px auto;
+    padding: 10px 20px;
+    border: .5px solid rgb(133, 133, 133);
+    /*RADIUS*/
+    border-radius: 11px 11px 11px 11px;
+    -moz-border-radius: 11px 11px 11px 11px;
+    -webkit-border-radius: 11px 11px 11px 11px;
+    /*FONT-SIZE*/
 }
