@@ -1,0 +1,152 @@
+/* RESET */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/*globale class*/
+
+.center {
+    text-align: center;
+}
+
+.orange {
+    color: #ef4d17;
+}
+
+.fontWNormal {
+    font-weight: normal;
+}
+
+.fontWBold {
+    font-weight: bold;
+}
+
+.fontSNormal {
+    font-size: .8em;
+}
+
+.white {
+    color: white;
+}
+
+
+/*BODY*/
+
+
+/*header*/
+
+#hello {
+    background-image: url('../pictures/hello.jpg');
+    background-size: cover;
+    height: 350px;
+}
+
+#mainLogo {
+    max-width: 80px;
+    margin: 30px 100px;
+}
+
+header>h1 {
+    margin: 0;
+    padding: 0;
+}
+
+header>h2 {
+    margin: 0;
+    padding: 20px 0;
+}
+
+input {
+    margin-right: 1px;
+    width: 400px;
+}
+
+input,
+button {
+    margin: 0;
+    border: 0;
+    padding: 10px 20px;
+    /*RADIUS*/
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    border: 0px solid #000000;
+    /*SHASOW*/
+    -webkit-box-shadow: 5px 5px 4px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 4px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 4px -3px rgba(0, 0, 0, 0.75);
+}
+
+button {
+    border: 0;
+    background-color: #f86b1e;
+    ;
+}
+
+#resultUser {
+    max-width: 40%;
+    margin: 15px auto;
+    padding: 5px 20px;
+    border: .5px solid rgb(133, 133, 133);
+    /*RADIUS*/
+    border-radius: 11px 11px 11px 11px;
+    -moz-border-radius: 11px 11px 11px 11px;
+    -webkit-border-radius: 11px 11px 11px 11px;
+    /*FONT-SIZE*/
+}
+
+
+/*section*/
+
+section {
+    background-color: rgb(238, 238, 238);
+}
+
+section>h2 {
+    margin: 0;
+    padding: 20px 0;
+}
+
+section>div {
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.entrepiseImg>img {
+    padding: 0 15px;
+    max-height: 30px;
+}
+
+
+/*footer*/
+
+#footerLogo {
+    display: block;
+    max-width: 60px;
+    margin: 30px auto 10px auto;
+}
+
+footer>p {
+    font-size: .7em;
+}
+
+#copyright {
+    margin: 0;
+}
+
+#footerLink {
+    margin-top: 0;
+}
+
+#footerLink>a {
+    text-decoration: none;
+}
