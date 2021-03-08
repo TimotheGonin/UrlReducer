@@ -1,3 +1,37 @@
+<!-- SENDING FORM -->
+<?php
+    if(isset($_POST['userUrl'])){
+        //VARIABLE
+        $url = $_POST['userUrl'];
+
+        //VERIFICATION
+        if(!filter_var($url, FILTER_VALIDATE_URL)){
+            //NOT A lINK
+            header('location: index.php?error=true&message=Adresse url non valide');
+            exit();
+        }
+
+        //SHORTCUT
+        $shortcut = crypt($url, rand());
+
+        //HAS BEEN ALREADY SEND
+        $bdd = new PDO('mysql:host=localhost;dbname=bitly;charset=utf8', 'root', '');
+        $req = $bdd->prepare('SELECT COUNT(*) AS x FROM links WHERE url = ?');
+        $req->execute(array($url));
+
+        while($result['x'] != 0){
+            header('location: index.php?error=true&message=Adresse déjà raccourcie');
+            exit();
+        }
+
+        //SENDING
+        $req = $bdd->prepare('INSERT INTO links(url,shortcut) VALUES (?, ?)');
+        $req->execute(array($url, $shortcut));
+
+        header('location: index.php?short='.$shortcut);
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,13 +50,17 @@
         </div>
         <h1 class="center white fontWNormal">UNE URL LONGUE ? RACCOURCISSEZ-LA ?</h1>
         <h2 class="center white fontSNormal">Largement meilleur et plus court que les autres.</h2>
-        <form action="" class="center">
-            <input type="url" name="" placeholder="Collez un lien à raccourcir">
+        <!-- url form -->
+        <form method="post" action="index.php" class="center">
+            <input type="url" name="userUrl" placeholder="Collez un lien à raccourcir">
             <button type="submit" class="white fontWBold">RACCOURCIR</button>
         </form>
-        <div id="resultUser" class="center">
-            <h3 class="center white fontSNormal">URL RACCOURCIE : <span class="fontWNormal">http://www.test.fr</span></h3>
-        </div>
+        <?php
+            if(isset($_GET['error']) && isset($_GET['message'])){ ?>
+                <div id="resultUser" class="center">
+                    <h3 class="center white fontSNormal">URL RACCOURCIE : <span class="fontWNormal">http://www.test.fr</span></h3>
+                </div>
+            <?php } ?>
     </header>
 <!-- SECTION -->
     <section>

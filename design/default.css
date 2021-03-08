@@ -73,7 +73,7 @@ input {
 input,
 button {
     margin: 0;
-    border: 0;
+    border: none;
     padding: 10px 20px;
     /*RADIUS*/
     border-radius: 2px 2px 2px 2px;
@@ -93,7 +93,8 @@ button {
 }
 
 #resultUser {
-    max-width: 40%;
+    display: inline-block;
+    /* max-width: 40%; */
     margin: 15px auto;
     padding: 5px 20px;
     border: .5px solid rgb(133, 133, 133);
