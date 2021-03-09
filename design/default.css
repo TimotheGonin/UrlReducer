@@ -18,7 +18,11 @@ body {
     text-align: center;
 }
 
-.orange {
+.orange-bg {
+    background-color: #ef4d17;
+}
+
+.orange-txt {
     color: #ef4d17;
 }
 
@@ -88,21 +92,21 @@ button {
 
 button {
     border: 0;
-    background-color: #f86b1e;
     ;
+}
+
+#boxResultUser {
+    margin: 15px;
 }
 
 #resultUser {
     display: inline-block;
-    /* max-width: 40%; */
-    margin: 15px auto;
-    padding: 5px 20px;
+    padding: 0 20px;
     border: .5px solid rgb(133, 133, 133);
     /*RADIUS*/
     border-radius: 11px 11px 11px 11px;
     -moz-border-radius: 11px 11px 11px 11px;
     -webkit-border-radius: 11px 11px 11px 11px;
-    /*FONT-SIZE*/
 }
 
 
