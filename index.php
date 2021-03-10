@@ -1,5 +1,33 @@
-<!-- SENDING FORM -->
 <?php
+//IS RECEIVED SHORTCUT
+    if(isset($_GET['q'])){
+
+        //VARIABLE
+        $shortcut = htmlspecialchars($_GET['q']);
+
+        //IS A SHORTCUT ?
+        $bdd = new PDO('mysql:host=localhost;dbname=bitly;charset=utf8', '[YOUR ID]', '[YOUR PASSWORD]');
+        $req = $bdd->prepare('SELECT COUNT(*) AS x FROM links WHERE shortcut = ?');
+        $req->execute(array($shortcut));
+
+        while($result = $req->fetch()){
+            if($result['x'] != 1){
+                header('location: ../?error=true&message=Adresse url non connue');
+                exit();
+            }
+        }
+
+        //REDIRECTION
+        $req = $bdd->prepare('SELECT * FROM links WHERE shortcut = ?');
+        $req->execute(array($shortcut));
+
+        while($result = $req->fetch()) {
+            header('location: '.$result['url']);
+            exit();
+        }
+    }
+
+//SENDING FORM
     if(isset($_POST['userUrl'])){
         //VARIABLE
         $url = $_POST['userUrl'];
@@ -70,7 +98,7 @@
             <?php } else if(isset($_GET['short'])){?>
                 <div id="boxResultUser" class="center">
                     <div id="resultUser" class="white">
-                        <p><b>URL RACCOURCIE : </b>http://localhost/q=<?php echo htmlspecialchars($_GET['short']);?></p>
+                        <p><b>URL RACCOURCIE : </b>http://localhost/?q=<?php echo htmlspecialchars($_GET['short']);?></p>
                     </div>
                 </div>
             <?php }?>
