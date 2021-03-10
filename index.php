@@ -1,3 +1,69 @@
+<?php
+//IS RECEIVED SHORTCUT
+    if(isset($_GET['q'])){
+
+        //VARIABLE
+        $shortcut = htmlspecialchars($_GET['q']);
+
+        //IS A SHORTCUT ?
+        $bdd = new PDO('mysql:host=localhost;dbname=bitly;charset=utf8', '[YOUR ID]', '[YOUR PASSWORD]');
+        $req = $bdd->prepare('SELECT COUNT(*) AS x FROM links WHERE shortcut = ?');
+        $req->execute(array($shortcut));
+
+        while($result = $req->fetch()){
+            if($result['x'] != 1){
+                header('location: ../?error=true&message=Adresse url non connue');
+                exit();
+            }
+        }
+
+        //REDIRECTION
+        $req = $bdd->prepare('SELECT * FROM links WHERE shortcut = ?');
+        $req->execute(array($shortcut));
+
+        while($result = $req->fetch()) {
+            header('location: '.$result['url']);
+            exit();
+        }
+    }
+
+//SENDING FORM
+    if(isset($_POST['userUrl'])){
+        //VARIABLE
+        $url = $_POST['userUrl'];
+
+        //VERIFICATION
+        if(!filter_var($url, FILTER_VALIDATE_URL)){
+            //NOT A lINK
+            header('location: index.php?error=true&message=Adresse url non valide');
+            exit();
+        }
+
+        //SHORTCUT
+        $shortcut = crypt($url, rand());
+
+        //HAS BEEN ALREADY SEND
+        $bdd = new PDO('mysql:host=localhost;dbname=bitly;charset=utf8', '[YOUR ID]', '[YOUR PASSWORD]');
+        $req = $bdd->prepare('SELECT COUNT(*) AS x FROM links WHERE url = ?');
+        $req->execute(array($url));
+
+        while($result = $req->fetch()) {
+
+            if($result['x'] != 0){
+            header('location: index.php?error=true&message=Adresse déjà raccourcie');
+            exit();
+            }
+
+        }
+
+        //SENDING
+        $req = $bdd->prepare('INSERT INTO links(url,shortcut) VALUES (?, ?)');
+        $req->execute(array($url, $shortcut));
+
+        header('location: index.php?short='.$shortcut);
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,24 +82,38 @@
         </div>
         <h1 class="center white fontWNormal">UNE URL LONGUE ? RACCOURCISSEZ-LA ?</h1>
         <h2 class="center white fontSNormal">Largement meilleur et plus court que les autres.</h2>
-        <form action="" class="center">
-            <input type="url" name="" placeholder="Collez un lien à raccourcir">
-            <button type="submit" class="white fontWBold">RACCOURCIR</button>
+        <!-- url form -->
+        <form method="post" action="index.php" class="center">
+            <input type="url" name="userUrl" placeholder="Collez un lien à raccourcir">
+            <button type="submit" class="white fontWBold orange-bg">RACCOURCIR</button>
         </form>
-        <div id="resultUser" class="center">
-            <h3 class="center white fontSNormal">URL RACCOURCIE : <span class="fontWNormal">http://www.test.fr</span></h3>
-        </div>
+
+        <?php
+            if(isset($_GET['error']) && isset($_GET['message'])){ ?>
+                <div id="boxResultUser" class="center">
+                    <div id="resultUser" class="white center">
+                        <p><?php echo htmlspecialchars($_GET['message']);?></p>
+                    </div>
+                </div>
+            <?php } else if(isset($_GET['short'])){?>
+                <div id="boxResultUser" class="center">
+                    <div id="resultUser" class="white">
+                        <p><b>URL RACCOURCIE : </b>http://localhost/?q=<?php echo htmlspecialchars($_GET['short']);?></p>
+                    </div>
+                </div>
+            <?php }?>
+
     </header>
 <!-- SECTION -->
     <section>
-        <h2 class="center fontSNormal orange">CES MARQUES NOUS FONT CONFIANCE</h2>
+        <h2 class="center fontSNormal orange-txt">CES MARQUES NOUS FONT CONFIANCE</h2>
         <div class="entrepiseImg center"><img src="pictures/1.png" alt="logo gris, Entrepreneur magazine" ><img src="pictures/2.png" alt="logo gris, Kaiser Permanente"><img src="pictures/3.png" alt="logo gris, PBS" ><img src="pictures/4.png" alt="logo gris, montage"></div>
     </section>
 <!-- FOOTER -->
     <footer>
         <div><img src="pictures/logo2.png" alt="logo orange, Bitly" id="footerLogo"></div>
         <p id="copyright" class="center ">2021 © Bitly</p>
-        <p id="footerLink" class= "center fontWBold"><a href="#" class="orange">Contact</a> - <a href="http://" class="orange">A Propos</a></p>
+        <p id="footerLink" class= "center fontWBold"><a href="#" class="orange-txt">Contact</a> - <a href="http://" class="orange-txt">A Propos</a></p>
     </footer>
 </body>
 </html>
